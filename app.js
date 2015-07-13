@@ -1,0 +1,1 @@
+ntgMessaging = angular.module('ntgMessaging', []);
