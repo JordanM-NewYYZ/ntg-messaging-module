@@ -1,5 +1,7 @@
 ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', 'messagesService', function($scope, $http, $log, messagesService) {
     
+    $scope.messages = messagesService.messagesList;
+    
             $http.get('json/messages.json')
             .success(function (responses) {
                 angular.forEach(responses, function(responses) {
@@ -13,8 +15,8 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', 'messa
                     message.archived = false;
 
                     messagesService.addMessage(message);
-                    messagesService.archiveMessage(message);
 //                    messagesService.totalMessagesCount(message);
+
                 });
                     
             })

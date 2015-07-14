@@ -1,2 +1,2 @@
-var ntgMessaging = angular.module('ntgMessaging', []);
+var ntgMessaging = angular.module('ntgMessaging', ['ngRoute']);
 'use strict';

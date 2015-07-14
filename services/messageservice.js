@@ -29,7 +29,7 @@ ntgMessaging.service('messagesService', ['$log', function($log) {
         newObj.status = status;
         newObj.archived = archived;
         
-        console.log(newObj);
+//        console.log(newObj);
         return newObj;
         this.addMessage(newObj);
     }
@@ -37,7 +37,7 @@ ntgMessaging.service('messagesService', ['$log', function($log) {
 
     this.addMessage = function(messageObj) {
         this.messagesList.push(messageObj);
-        $log.info(this.messagesList);
+//        $log.info(this.messagesList);
         this.totalCount++;
         this.unreadCount++;
     }
@@ -73,6 +73,5 @@ ntgMessaging.service('messagesService', ['$log', function($log) {
     }
     
     //Count functions
-    
     
 }]);
