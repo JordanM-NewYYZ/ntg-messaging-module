@@ -1,8 +1,12 @@
 <div class="ntg-inbox-container">
 
 
-    <div ng-repeat="message in messages">
-        <message-list></message-list>
-    </div>  
+    <div ng-repeat="msg in message.allMessages track by $index">
+        <message-list message-info="msg"></message-list>
+    </div>
+
+
+
+    <!--<message-list weather-day="w" convert-to-standard="convertToCelcius(daytimeTemp)" convert-to-date="convertDate(dt)" date-format="MMM d, y" humidity-level="weatherday.humidity"></message-list>-->
 
 </div>
