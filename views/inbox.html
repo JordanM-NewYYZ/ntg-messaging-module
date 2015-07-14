@@ -1,12 +1,23 @@
-<div class="ntg-inbox-container">
-
-
-    <div ng-repeat="msg in message.allMessages track by $index">
-        <message-list message-info="msg"></message-list>
-    </div>
-
-
-
-    <!--<message-list weather-day="w" convert-to-standard="convertToCelcius(daytimeTemp)" convert-to-date="convertDate(dt)" date-format="MMM d, y" humidity-level="weatherday.humidity"></message-list>-->
-
+<p>{{ allmessages }}</p>
+<div class="ntg-message-search">
+    <input type="text" ng-model="ntgsearch" placeholder="Search...">
 </div>
+<div class="ntg-message-filters">
+    <select ng-model="ntgAttrs">
+        <option value="date">Newest</option>
+        <option value="-date">Oldest</option>
+        <option value="from">From: A-Z</option>
+        <option value="-from">From: Z-A</option>
+        <option value="-priority">Urgent</option>
+    </select>
+</div>
+
+
+
+<div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs">
+    <message-list message-info="msg"></message-list>
+</div>
+
+
+
+<!--<message-list weather-day="w" convert-to-standard="convertToCelcius(daytimeTemp)" convert-to-date="convertDate(dt)" date-format="MMM d, y" humidity-level="weatherday.humidity"></message-list>-->

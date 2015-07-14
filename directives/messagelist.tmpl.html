@@ -1,7 +1,8 @@
 <div class="messages">
 
-    <p>{{ messageInfo.id }}</p>
+    <p class="ntg-message-from">{{ messageInfo.from }}</p>
+    <p class="ntg-message-date">{{ messageInfo.date | date: 'dd/mm/yyyy' }}</p>
+    <p class="ntg-message-subject">{{ messageInfo.subject }}</p>
+    <p class="ntg-message-body">{{ messageInfo.body }}</p>
 
-    
 </div>
-
