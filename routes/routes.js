@@ -13,7 +13,12 @@ ntgMessaging.config(function ($routeProvider) {
         //        controller: 'messageController',
         //        controllerAs: 'message'
         //    })
+        .when('/inbox/:id', {
+            templateUrl: 'views/messageview.html',
+            controller: 'messagesController',
+            controllerAs: 'message'
+        })
         .otherwise({
             redirectTo: '/'
-        });
+        })
 });

@@ -8,7 +8,7 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
         body: '',
         date: '',
         status: '',
-        archived: '',
+        isArchived: '',
         //        markAs: { Add a function here later } 
     };
 
@@ -17,6 +17,8 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
     this.unreadCount = '';
     this.archivedCount = '';
     this.totalCount = 0;
+
+    var counter = this.totalCount;
 
 
     this.newMessage = function (id, from, subject, body, date, status, archived) {
@@ -28,7 +30,7 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
         newObj.body = body;
         newObj.date = date;
         newObj.status = status;
-        newObj.archived = archived;
+        newObj.isArchived = archived;
 
         //        console.log(newObj);
         return newObj;
@@ -40,9 +42,7 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
         this.messagesList.push(messageObj);
         //        $log.info(this.messagesList);
 
-
-        ++this.totalCount;
-        this.unreadCount++;
+        counter++;
     }
 
     this.archiveMessage = function (messageObj) {
