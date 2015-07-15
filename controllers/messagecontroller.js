@@ -9,7 +9,7 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', 'messa
     //Default value for dropdown filter
     $scope.ntgAttrs = "date";
 
-    $scope.messagesInfo = messagesService.info;
+    $scope.infoCounters = messagesService.info;
 
 
     $http.get('json/messages.json')

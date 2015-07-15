@@ -1,6 +1,7 @@
-<p>Total Messages: {{ messagesInfo.totalCount }}</p>
-<p>Unread Messages: {{ messagesInfo.unreadCount }}</p>
-<p>Archived Messages: {{ messagesInfo.archivedCount }}</p>
+<p>Total Messages: {{ infoCounters.totalCount }}</p>
+<p>Unread Messages: {{ infoCounters.unreadCount }}</p>
+<p>Archived Messages: {{ infoCounters.archivedCount }}</p>
+
 <div class="ntg-message-search">
     <input type="text" ng-model="ntgsearch" placeholder="Search...">
 </div>
@@ -17,9 +18,16 @@
 
 
 <div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs">
-    <message-list message-info="msg"></message-list>
+    <a href="#/{{ msg.id }}">
+        <message-list message-info="msg"></message-list>
+    </a>
 </div>
 
+
+<p> ------------------------------------------------------ </p>
+<p>Message Summary</p>
+
+<message-summary></message-summary>
 
 
 <!--<message-list weather-day="w" convert-to-standard="convertToCelcius(daytimeTemp)" convert-to-date="convertDate(dt)" date-format="MMM d, y" humidity-level="weatherday.humidity"></message-list>-->
