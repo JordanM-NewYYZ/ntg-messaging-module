@@ -4,12 +4,13 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', 'messa
 
 
     this.messagesService = messagesService;
-    console.log(messagesService);
+
 
     //Default value for dropdown filter
     $scope.ntgAttrs = "date";
 
-    $scope.totalmessagecount = messagesService.totalCount;
+    $scope.messagesInfo = messagesService.info;
+
 
     $http.get('json/messages.json')
         .success(function (responses) {
@@ -27,6 +28,7 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', 'messa
                     response.archived
                 );
                 messagesFromJson.push(message);
+                console.log(messagesService);
             });
 
             for (var i = 0; i < messagesFromJson.length; i++) {

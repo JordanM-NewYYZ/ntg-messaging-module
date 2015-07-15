@@ -16,7 +16,13 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
     this.archiveList = [];
     this.unreadCount = '';
     this.archivedCount = '';
-    this.totalCount = 0;
+
+    //Message status
+    this.info = {};
+    this.info.totalCount = 0;
+    this.info.unreadCount = 0;
+    this.info.archivedCount = 0;
+
 
     var counter = this.totalCount;
 
@@ -37,12 +43,13 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
         this.addMessage(newObj);
     }
 
-
+    var that = this;
     this.addMessage = function (messageObj) {
-        this.messagesList.push(messageObj);
+        that.messagesList.push(messageObj);
         //        $log.info(this.messagesList);
+        that.info.totalCount++;
+        that.info.unreadCount++;
 
-        counter++;
     }
 
     this.archiveMessage = function (messageObj) {
