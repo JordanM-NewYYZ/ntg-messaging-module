@@ -1,0 +1,24 @@
+.messages {
+    width: 100%;
+}
+
+.ntg-message-list-container {
+    width: 100%;
+}
+
+.messages:nth-child(odd) {
+    background-color: #BDBDBD;
+}
+
+.ntg-message-from {
+    float: left;
+}
+
+.ntg-message-subject {
+    position: relative;
+    margin-left: 20%;
+}
+
+.ntg-message-date {
+    float: right;
+}

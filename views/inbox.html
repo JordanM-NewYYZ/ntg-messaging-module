@@ -16,18 +16,20 @@
 </div>
 
 
-
-<div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs">
-    <a href="#/{{ msg.id }}">
-        <message-list message-info="msg"></message-list>
-    </a>
+<div class="ntg-message-list-container">
+    <div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs" class="messages">
+        <a href="#/{{ msg.id }}">
+            <ntg-message-list message-info="msg"></ntg-message-list>
+            <ntg-message-summary from-who="msg.from" subject="msg.subject" date="msg.date" details="msg.body"></ntg-message-summary>
+            <ntg-message-details for-message="msg.id"></ntg-message-details>
+        </a>
+    </div>
 </div>
 
 
 <p> ------------------------------------------------------ </p>
 <p>Message Summary</p>
 
-<message-summary></message-summary>
 
 
 <!--<message-list weather-day="w" convert-to-standard="convertToCelcius(daytimeTemp)" convert-to-date="convertDate(dt)" date-format="MMM d, y" humidity-level="weatherday.humidity"></message-list>-->

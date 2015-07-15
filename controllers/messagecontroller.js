@@ -1,4 +1,4 @@
-ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', 'messagesService', function ($scope, $http, $log, messagesService) {
+ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$timeout', 'messagesService', function ($scope, $http, $log, $timeout, messagesService) {
     var vm = this;
     vm.allMessages = messagesService.messagesList;
 
@@ -10,6 +10,13 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', 'messa
     $scope.ntgAttrs = "date";
 
     $scope.infoCounters = messagesService.info;
+
+
+    //Summary directive
+    $scope.fromWho = messagesService.messagesList;
+    console.log($scope.fromWho);
+
+    //Details directive
 
 
     $http.get('json/messages.json')
