@@ -11,12 +11,15 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$time
 
     $scope.infoCounters = messagesService.info;
 
+    //List directive
+    $scope.archiveMessage = messagesService.archiveMessage;
 
     //Summary directive
     $scope.fromWho = messagesService.messagesList;
-    console.log($scope.fromWho);
+
 
     //Details directive
+    $scope.messageId = messagesService.messagesList.id;
 
 
     $http.get('json/messages.json')
@@ -35,7 +38,6 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$time
                     response.archived
                 );
                 messagesFromJson.push(message);
-                console.log(messagesService);
             });
 
             for (var i = 0; i < messagesFromJson.length; i++) {

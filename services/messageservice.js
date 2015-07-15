@@ -13,9 +13,12 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
     };
 
     this.messagesList = [];
-    this.archiveList = [];
+    this.archiveList = {};
     this.unreadCount = '';
     this.archivedCount = '';
+
+    this.list = {};
+    this.list.archived = [];
 
     //Message status
     this.info = {};
@@ -53,16 +56,20 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
     }
 
     this.archiveMessage = function (messageObj) {
-        this.archivedCount++;
-        this.archiveList.push(messageObj);
+        that.info.archivedCount++;
+        that.list.archived.push(messageObj);
+
+        removeFromMessages(messageObj);
 
 
-        var list = this.messagesList;
+
         //Removes duplicated messages*
-        function removeFromMessages(list, messageObj) {
+        function removeFromMessages(messageObj, list) {
+            list = that.messagesList;
             for (var i = list.length; i--;) {
                 if (list[i] === messageObj) {
                     list.splice(i, 1);
+                    that.info.totalCount--;
                 }
             }
         }
@@ -82,7 +89,12 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
 
     }
 
-    //Count functions
+    //Show info functions
+
+    this.showSubject = function (messageObj) {
+
+
+    }
 
 
 

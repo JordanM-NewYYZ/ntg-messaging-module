@@ -7,7 +7,8 @@ ntgMessaging.directive('ntgMessageSummary', ['$log', function ($log) {
             fromWho: '=',
             subject: '=',
             date: '=',
-            details: '='
+            details: '=',
+            archiveMessage: "&"
         }
     };
 }]);
