@@ -1,9 +1,9 @@
 <br>
 
 <button ng-click="archiveMessage(msg)" class="ntg-archive-button">Archive</button>
+
 <a href="" ng-click="messagedetail='from'" class="ntg-from-button">From</a>
 <a href="" ng-click="messagedetail='subject'" class="ntg-subject-button">Subject</a>
-
 <a href="" ng-click="messagedetail='date'" class="ntg-date-button">Date</a>
 <a href="" ng-click="messagedetail='details'" class="ntg-details-button">Details</a>
 <a href="" ng-click="messagedetail='hide'" class="ntg-hide-button">Hide</a>
@@ -24,7 +24,7 @@
     </div>
 
     <div ng-switch-when="details" class="ntg-switch-details">
-        <ntg-message-details from-who="fromWho" subject="subject" date="date" details="details"></ntg-message-details>
+        <ntg-message-details message-status="msg" from-who="fromWho" subject="subject" date="date" details="details"></ntg-message-details>
     </div>
 
     <div ng-switch-when="hide" class="ntg-switch-hide off">

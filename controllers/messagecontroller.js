@@ -4,7 +4,7 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$time
     this.messagesService = messagesService;
 
     $scope.messages = messagesService.messagesList;
-    
+
     //Default value for dropdown filter
     $scope.ntgAttrs = "date";
 
@@ -18,7 +18,17 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$time
 
 
     //Details directive
-    $scope.messageId = messagesService.messagesList.id;
+
+    $scope.readMessage = function (messageObj) {
+        console.log("hello");
+        if (messageObj.status === "unread") {
+            setTimeout(function () {
+                console.log(messageObj);
+                messageObj.status === "read";
+                that.info.unreadCount--;
+            }, 200);
+        }
+    };
 
 
     $http.get('json/messages.json')

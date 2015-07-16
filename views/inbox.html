@@ -1,5 +1,4 @@
 <p>Total Messages: {{ infoCounters.totalCount }}</p>
-<p>Unread Messages: {{ infoCounters.unreadCount }}</p>
 <p>Archived Messages: {{ infoCounters.archivedCount }}</p>
 
 <div class="ntg-message-search">
@@ -31,3 +30,11 @@
 
 
 <p>Working on:</p>
+<br>
+<hr>
+<h1>Message Details Directive (non-nested)</h1>
+<hr>
+
+<div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs" class="messages">
+    <ntg-message-details load-messages="msg"></ntg-message-details>
+</div>

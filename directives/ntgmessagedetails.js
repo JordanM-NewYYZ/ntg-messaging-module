@@ -5,12 +5,16 @@ ntgMessaging.directive('ntgMessageDetails', ['$log', function ($log) {
         require: 'ntgMessageSummary',
         scope: {
             forMessage: '=',
+            loadMessages: '=',
             fromWho: '=',
             subject: '=',
             date: '=',
             details: '=',
-            archiveMessage: '='
+            archiveMessage: '=',
+            isUnread: '=',
+            messageStatus: '='
         }
-    }
+
+    };
 
 }]);

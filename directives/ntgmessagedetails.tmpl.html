@@ -1,3 +1,5 @@
+<!--If nested within another directive...-->
+
 <div class="ntg-details-container">
     <div class="ntg-from-container">
         <h2 class="ntg-from">{{ fromWho }}</h2>
@@ -14,24 +16,30 @@
     <div class="ntg-body-container">
         <h2 class="ntg-body">{{ details }}</h2>
     </div>
+
 </div>
 
 
-<!-- If not nested within a directive... -->
+<!--If not nested within a directive...-->
+
+
+
 <div class="ntg-details-container">
+
     <div class="ntg-from-container">
-        <h2 class="ntg-from">{{ fromWho.from }}</h2>
+        <h2 class="ntg-from">{{ loadMessages.from }}</h2>
     </div>
 
     <div class="ntg-date-container">
-        <h2 class="ntg-date">{{ fromWho.date | date: 'dd/mm/yyyy' }}</h2>
+        <h2 class="ntg-date">{{ loadMessages.date | date: 'dd/mm/yyyy' }}</h2>
     </div>
 
     <div class="ntg-subject-container">
-        <h2 class="ntg-subject">{{ fromWho.subject }}</h2>
+        <h2 class="ntg-subject">{{ loadMessages.subject }}</h2>
     </div>
 
     <div class="ntg-body-container">
-        <h2 class="ntg-body">{{ fromWho.details }}</h2>
+        <h2 class="ntg-body">{{ loadMessages.body }}</h2>
     </div>
+
 </div>

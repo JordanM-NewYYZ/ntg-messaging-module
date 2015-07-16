@@ -81,4 +81,15 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
         }
 
     };
+
+    this.readMessage = function () {
+        console.log("hello");
+        if (messageObj.status === "unread") {
+            setTimeout(function () {
+                console.log(messageObj);
+                messageObj.status === "read";
+                that.info.unreadCount--;
+            }, 200);
+        }
+    };
 }]);
