@@ -89,12 +89,13 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
 
     }
 
-    //Show info functions
+    //Button for scrolling between information on message summary directive
 
-    this.showSubject = function (messageObj) {
-
-
+    this.infoScroller = function () {
+        i++;
+        console.log(i);
     }
+
 
 
 

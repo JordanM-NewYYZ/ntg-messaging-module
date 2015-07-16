@@ -1,8 +1,27 @@
 <br>
 
-<button ng-click="archiveMessage(msg)">Archive</button>
+<button ng-click="archiveMessage(msg)" class="ntg-archive-button">Archive</button>
+<a href="" ng-click="messagedetail='from'" class="ntg-from-button">From</a>
+<a href="" ng-click="messagedetail='subject'" class="ntg-subject-button">Subject</a>
+<a href="" ng-click="messagedetail='date'" class="ntg-date-button">Date</a>
+<a href="" ng-click="messagedetail='details'" class="ntg-details-button">Details</a>
 
-<a href="{{ fromWho }}">From</a>
-<a href="{{ subject }}">Subject</a>
-<a href="{{ date }}">Date</a>
-<a href="{{ details }}">Details</a>
+<br>
+<div ng-switch="messagedetail">
+    <div ng-switch-when="from" class="ntg-switch-from">
+        <p>{{ fromWho }}</p>
+    </div>
+
+    <div ng-switch-when="subject" class="ntg-switch-subject">
+        <p>{{ subject }}</p>
+
+    </div>
+
+    <div ng-switch-when="date" class="ntg-switch-date">
+        <p>{{ date | date: 'dd/mm/yyyy' }}</p>
+    </div>
+
+    <div ng-switch-when="details" class="ntg-switch-details">
+        <p>{{ details }}</p>
+    </div>
+</div>
