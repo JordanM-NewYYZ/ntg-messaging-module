@@ -1,11 +1,10 @@
 ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$timeout', 'messagesService', function ($scope, $http, $log, $timeout, messagesService) {
     var vm = this;
     vm.allMessages = messagesService.messagesList;
-
-
     this.messagesService = messagesService;
 
-
+    $scope.messages = messagesService.messagesList;
+    
     //Default value for dropdown filter
     $scope.ntgAttrs = "date";
 

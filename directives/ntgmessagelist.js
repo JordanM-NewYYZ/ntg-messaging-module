@@ -4,7 +4,8 @@ ntgMessaging.directive('ntgMessageList', ['$log', function ($log) {
     return {
         templateUrl: 'directives/ntgmessagelist.tmpl.html',
         scope: {
-            messageInfo: "=",
+            messageInfo: '=',
+            loadMessages: '='
         }
     };
 }]);

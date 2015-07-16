@@ -21,9 +21,13 @@
 
         <ntg-message-list message-info="msg"></ntg-message-list>
 
-        <ntg-message-summary from-who="msg.from" subject="msg.subject" date="msg.date" details="msg.body" archive-message="archiveMessage(msg)"></ntg-message-summary>
+        <ntg-message-summary current-message="msg" from-who="msg.from" subject="msg.subject" date="msg.date" details="msg.body" archive-message="archiveMessage(msg)">
+        </ntg-message-summary>
 
-        <ntg-message-details for-message="msg"></ntg-message-details>
+        <br>
 
     </div>
 </div>
+
+
+<p>Working on:</p>

@@ -5,6 +5,8 @@
 <a href="" ng-click="messagedetail='subject'" class="ntg-subject-button">Subject</a>
 <a href="" ng-click="messagedetail='date'" class="ntg-date-button">Date</a>
 <a href="" ng-click="messagedetail='details'" class="ntg-details-button">Details</a>
+<a href="" ng-click="messagedetail='hide'" class="ntg-details-button">Hide</a>
+
 
 <br>
 <div ng-switch="messagedetail">
@@ -24,4 +26,10 @@
     <div ng-switch-when="details" class="ntg-switch-details">
         <p>{{ details }}</p>
     </div>
+    <div ng-switch-when="hide" class="ntg-switch-hide">
+    </div>
 </div>
+
+Show Full Details:
+<input type="checkbox" class="ntg-show-details-full" ng-model="ntgShowFull">
+<ntg-message-details ng-show="ntgShowFull" from-who="fromWho" subject="subject" date="date" details="details"></ntg-message-details>

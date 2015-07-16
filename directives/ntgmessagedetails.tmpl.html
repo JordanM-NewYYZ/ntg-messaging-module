@@ -1,19 +1,37 @@
-<input type="checkbox" class="ntg-show-details-full" ng-model="ntgShowFull">
-
-<div class="ntg-details-container" ng-show="ntgShowFull">
+<div class="ntg-details-container">
     <div class="ntg-from-container">
-        <h2 class="ntg-from">{{ forMessage.from }}</h2>
+        <h2 class="ntg-from">{{ fromWho }}</h2>
     </div>
 
     <div class="ntg-date-container">
-        <h2 class="ntg-date">{{ forMessage.date | date: 'dd/mm/yyyy' }}</h2>
+        <h2 class="ntg-date">{{ date | date: 'dd/mm/yyyy' }}</h2>
     </div>
 
     <div class="ntg-subject-container">
-        <h2 class="ntg-subject">{{ forMessage.subject }}</h2>
+        <h2 class="ntg-subject">{{ subject }}</h2>
     </div>
 
     <div class="ntg-body-container">
-        <h2 class="ntg-body">{{ forMessage.body }}</h2>
+        <h2 class="ntg-body">{{ details }}</h2>
+    </div>
+</div>
+
+
+<!-- If not nested within a directive... -->
+<div class="ntg-details-container">
+    <div class="ntg-from-container">
+        <h2 class="ntg-from">{{ fromWho.from }}</h2>
+    </div>
+
+    <div class="ntg-date-container">
+        <h2 class="ntg-date">{{ fromWho.date | date: 'dd/mm/yyyy' }}</h2>
+    </div>
+
+    <div class="ntg-subject-container">
+        <h2 class="ntg-subject">{{ fromWho.subject }}</h2>
+    </div>
+
+    <div class="ntg-body-container">
+        <h2 class="ntg-body">{{ fromWho.details }}</h2>
     </div>
 </div>

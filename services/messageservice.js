@@ -8,8 +8,8 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
         body: '',
         date: '',
         status: '',
-        isArchived: '',
-        //        markAs: { Add a function here later } 
+        isArchived: false
+            //        markAs: { Add a function here later } 
     };
 
     this.messagesList = [];
@@ -27,9 +27,6 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
     this.info.archivedCount = 0;
 
 
-    var counter = this.totalCount;
-
-
     this.newMessage = function (id, from, subject, body, date, status, archived) {
 
         var newObj = angular.copy(message);
@@ -41,27 +38,23 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
         newObj.status = status;
         newObj.isArchived = archived;
 
-        //        console.log(newObj);
         return newObj;
         this.addMessage(newObj);
-    }
+    };
 
     var that = this;
     this.addMessage = function (messageObj) {
         that.messagesList.push(messageObj);
-        //        $log.info(this.messagesList);
         that.info.totalCount++;
         that.info.unreadCount++;
 
-    }
+    };
 
     this.archiveMessage = function (messageObj) {
         that.info.archivedCount++;
         that.list.archived.push(messageObj);
 
         removeFromMessages(messageObj);
-
-
 
         //Removes duplicated messages*
         function removeFromMessages(messageObj, list) {
@@ -84,19 +77,8 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
                 if (list[i] === messageObj) {
                     list.splice(i, 1);
                 }
-            };
-        };
+            }
+        }
 
-    }
-
-    //Button for scrolling between information on message summary directive
-
-    this.infoScroller = function () {
-        i++;
-        console.log(i);
-    }
-
-
-
-
+    };
 }]);
