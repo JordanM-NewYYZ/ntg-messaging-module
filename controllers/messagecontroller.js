@@ -15,13 +15,16 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$time
 
     //Summary directive
     $scope.fromWho = messagesService.messagesList;
+    $scope.markAs = messagesService.markAs;
 
     $scope.messagestatuslist = [
         {
-            name: "Urgent"
+            name: "Urgent",
+            value: 1
         },
         {
-            name: "Not Urgent"
+            name: "Not Urgent",
+            value: 2
         }
         ];
 
@@ -57,6 +60,7 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$time
                     response.body,
                     response.date,
                     response.status,
+                    response.priority,
                     response.archived
                 );
                 messagesFromJson.push(message);

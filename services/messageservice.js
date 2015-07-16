@@ -28,7 +28,7 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
     this.info.archivedCount = 0;
 
 
-    this.newMessage = function (id, from, subject, body, date, status, archived) {
+    this.newMessage = function (id, from, subject, body, date, status, priority, archived) {
 
         var newObj = angular.copy(message);
         newObj.id = id;
@@ -37,6 +37,7 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
         newObj.body = body;
         newObj.date = date;
         newObj.status = status;
+        newObj.priority = priority;
         newObj.isArchived = archived;
 
         return newObj;
@@ -95,18 +96,21 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
     };
 
 
-    this.updateStatus = function (message) {
-        var list = this.archiveList;
-        for (var i = list.length; i--;) {
-            if (list[i] === messageObj) {
-                if (messageObj.status === false) {
-                    return messageObj.status = true;
+    this.markAs = function setPriority(messageObj) {
+        var list = that.messagesList;
+
+        for (var i = 0; i < list.length; i++) {
+            if (list[i].id === messageObj.id) {
+                if (messageObj.priority === true) {
+                    console.log("here -- true");
+                    console.log(list[i]);
+                    return list[i].status = false;
+                }
+                if (messageObj.priority === false) {
+                    console.log("here -- false");
+                    return list[i].status = true;
                 }
             }
         }
-
-    }
-
-
-
+    };
 }]);

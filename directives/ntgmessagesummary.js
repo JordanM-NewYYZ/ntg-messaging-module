@@ -6,14 +6,14 @@ ntgMessaging.directive('ntgMessageSummary', ['$log', function ($log) {
         require: '^ngModel',
         scope: {
             fromWho: '=',
-            defaultStatus: '=',
             subject: '=',
             date: '=',
             details: '=',
             archiveMessage: '&',
             messageStatus: '=',
             messagePriority: '=',
-            statusSelector: '='
+            updateStatus: '&',
+            markAs: '&'
         }
     };
 }]);
