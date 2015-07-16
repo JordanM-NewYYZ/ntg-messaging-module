@@ -3,12 +3,17 @@ ntgMessaging.directive('ntgMessageSummary', ['$log', function ($log) {
 
     return {
         templateUrl: 'directives/ntgmessagesummary.tmpl.html',
+        require: '^ngModel',
         scope: {
             fromWho: '=',
+            defaultStatus: '=',
             subject: '=',
             date: '=',
             details: '=',
-            archiveMessage: '&'
+            archiveMessage: '&',
+            messageStatus: '=',
+            messagePriority: '=',
+            statusSelector: '='
         }
     };
 }]);

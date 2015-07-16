@@ -8,6 +8,7 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
         body: '',
         date: '',
         status: '',
+        priority: false,
         isArchived: false
             //        markAs: { Add a function here later } 
     };
@@ -82,7 +83,7 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
 
     };
 
-    this.readMessage = function () {
+    this.readMessage = function (messageObj) {
         console.log("hello");
         if (messageObj.status === "unread") {
             setTimeout(function () {
@@ -92,4 +93,20 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
             }, 200);
         }
     };
+
+
+    this.updateStatus = function (message) {
+        var list = this.archiveList;
+        for (var i = list.length; i--;) {
+            if (list[i] === messageObj) {
+                if (messageObj.status === false) {
+                    return messageObj.status = true;
+                }
+            }
+        }
+
+    }
+
+
+
 }]);

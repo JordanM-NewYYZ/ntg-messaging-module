@@ -4,17 +4,30 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$time
     this.messagesService = messagesService;
 
     $scope.messages = messagesService.messagesList;
+    $scope.infoCounters = messagesService.info;
 
-    //Default value for dropdown filter
+    //Default value for message sort dropdown filter
     $scope.ntgAttrs = "date";
 
-    $scope.infoCounters = messagesService.info;
 
     //List directive
     $scope.archiveMessage = messagesService.archiveMessage;
 
     //Summary directive
     $scope.fromWho = messagesService.messagesList;
+
+    $scope.messagestatuslist = [
+        {
+            name: "Urgent"
+        },
+        {
+            name: "Not Urgent"
+        }
+        ];
+
+    $scope.defaultStatus = $scope.messagestatuslist[0].name;
+
+
 
 
     //Details directive
