@@ -40,14 +40,13 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
         newObj.isArchived = archived;
 
         return newObj;
-        this.addMessage(newObj);
+        //        this.addMessage(newObj);
     };
 
     this.addMessage = function (messageObj) {
         that.messagesList.push(messageObj);
         that.info.totalCount++;
         that.info.unreadCount++;
-
     };
 
 
@@ -66,19 +65,26 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
                 if (list[i] === messageObj) {
                     list.splice(i, 1);
                     that.info.totalCount--;
+                    if (messageObj.status === "unread") {
+                        that.info.unreadCount--;
+                    }
                 }
             }
         }
     };
 
     this.unArchiveMessage = function (messageObj) {
+        archivedlist = that.list.archived;
+        that.messagesList.push(messageObj);
 
-        var list = this.archiveList;
-
-        function removeFromMessages(list, messageObj) {
+        function removeFromArchived(list, messageObj) {
             for (var i = list.length; i--;) {
                 if (list[i] === messageObj) {
                     list.splice(i, 1);
+                    that.info.totalCount++;
+                    if (messageObj.status === "unread") {
+                        that.info.unreadCount++;
+                    }
                 }
             }
         }
@@ -89,13 +95,12 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
 
     this.readMessage = function (messageObj) {
         var list = that.messagesList;
-        var count = that.info.unreadCount;
 
         if (messageObj.status === "unread") {
             for (var i = 0; i < list.length; i++) {
                 if (list[i].id === messageObj.id) {
+                    that.info.unreadCount--;
                     list[i].status = "read";
-                    count--;
                 }
             }
         }
