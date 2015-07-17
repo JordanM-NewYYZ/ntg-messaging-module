@@ -10,12 +10,12 @@
 <!--Message Filters / Organization-->
 <div class="ntg-message-filters">
     <select ng-model="ntgAttrs">
-        <option value="status === 'unread">Unread</option>
-        <option value="date ">Newest</option>
-        <option value="-date ">Oldest</option>
-        <option value="from ">From: A-Z</option>
-        <option value="-from ">From: Z-A</option>
-        <option value="-priority ">Urgent</option>
+        <option value="date">Recent</option>
+        <option value="-date">Oldest</option>
+        <option value="-status">Unread</option>
+        <option value="from">From: A-Z</option>
+        <option value="-from">From: Z-A</option>
+        <option value="priority">Urgent</option>
 
     </select>
 </div>
@@ -24,9 +24,9 @@
 <div class="ntg-message-list-container ">
     <div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs " class="messages ">
 
-        <ntg-message-list message-info="msg "></ntg-message-list>
+        <ntg-message-list messages="msg"></ntg-message-list>
 
-        <ntg-message-summary message-status="msg.status " message-priority="msg.priority " current-message="msg " from-who="msg.from " subject="msg.subject " date="msg.date " details="msg.body " archive-message="archiveMessage(msg) " status-selector="messagestatuslist " update-status="updateStatus(msg) " mark-as="markAs(msg) " check-priority="checkPriority(msg) " read-message="readMessage(msg) ">
+        <ntg-message-summary current-message="msg" message-status="msg.status" message-priority="msg.priority" from-who="msg.from" subject="msg.subject" date="msg.date" details="msg.body" archive-message="archiveMessage(msg)" mark-as="markAs(msg)" check-priority="checkPriority(msg)" read-message="readMessage(msg)">
         </ntg-message-summary>
 
         <br>
@@ -36,12 +36,13 @@
 
 
 <p>Working on:</p>
+
 <br>
 <hr>
 <h1>Message Details Directive (non-nested)</h1>
 <hr>
 
 <!--Non-nested details directive-->
-<div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs " class="messages ">
-    <ntg-message-details load-messages="msg "></ntg-message-details>
+<div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs" class="messages">
+    <ntg-message-details messages="msg"></ntg-message-details>
 </div>

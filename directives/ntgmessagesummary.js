@@ -5,6 +5,7 @@ ntgMessaging.directive('ntgMessageSummary', ['$log', function ($log) {
         templateUrl: 'directives/ntgmessagesummary.tmpl.html',
         require: '^ngModel',
         scope: {
+            messages: '=',
             fromWho: '=',
             subject: '=',
             date: '=',
@@ -12,7 +13,6 @@ ntgMessaging.directive('ntgMessageSummary', ['$log', function ($log) {
             archiveMessage: '&',
             messageStatus: '=',
             messagePriority: '=',
-            updateStatus: '&',
             markAs: '&',
             checkPriority: '&',
             readMessage: '&'

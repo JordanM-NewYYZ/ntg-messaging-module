@@ -4,14 +4,12 @@ ntgMessaging.directive('ntgMessageDetails', ['$log', function ($log) {
         templateUrl: 'directives/ntgmessagedetails.tmpl.html',
         //        require: 'ntgMessageSummary',
         scope: {
-            forMessage: '=',
-            loadMessages: '=',
+            messages: '=',
             fromWho: '=',
             subject: '=',
             date: '=',
             details: '=',
             archiveMessage: '=',
-            isUnread: '=',
             messageStatus: '='
         }
     };

@@ -14,9 +14,6 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
     };
 
     this.messagesList = [];
-    this.archiveList = {};
-    this.unreadCount = '';
-    this.archivedCount = '';
 
     this.list = {};
     this.list.archived = [];

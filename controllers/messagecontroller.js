@@ -14,23 +14,15 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$time
     $scope.archiveMessage = messagesService.archiveMessage;
 
     //Summary directive
-    $scope.fromWho = messagesService.messagesList;
+    $scope.messages = messagesService.messagesList;
     $scope.markAs = messagesService.markAs;
     $scope.checkPriority = messagesService.checkPriority;
     $scope.readMessage = messagesService.readMessage;
 
-    $scope.messagestatuslist = [
-        {
-            name: "Urgent",
-            value: 1
-        },
-        {
-            name: "Not Urgent",
-            value: 2
-        }
-        ];
-
-    $scope.defaultStatus = $scope.messagestatuslist[0].name;
+    $scope.fromWho = messagesService.messagesList.from;
+    $scope.subject = messagesService.messagesList.subject;
+    $scope.date = messagesService.messagesList.date;
+    $scope.details = messagesService.messagesList.body;
 
 
 
