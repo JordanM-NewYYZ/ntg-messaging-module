@@ -1,33 +1,27 @@
 ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$timeout', 'messagesService', function ($scope, $http, $log, $timeout, messagesService) {
     var vm = this;
+    var mv = $scope;
     vm.allMessages = messagesService.messagesList;
     this.messagesService = messagesService;
 
-    vm.messages = messagesService.messagesList;
-    vm.infoCounters = messagesService.info;
+    mv.infoCounters = messagesService.info;
 
     //Default value for message sort dropdown filter
-    vm.ntgAttrs = "date";
+    mv.ntgAttrs = "date";
 
 
-    //List directive
-    vm.archiveMessage = messagesService.archiveMessage;
-
-    //Summary directive
-    vm.messages = messagesService.messagesList;
-    vm.markAs = messagesService.markAs;
-    vm.checkPriority = messagesService.checkPriority;
-    vm.readMessage = messagesService.readMessage;
-
-    vm.fromWho = messagesService.messagesList.from;
-    vm.subject = messagesService.messagesList.subject;
-    vm.date = messagesService.messagesList.date;
-    vm.details = messagesService.messagesList.body;
+    //Directive Attributes
+    mv.messages = messagesService.messagesList;
+    mv.markAs = messagesService.markAs;
+    mv.archiveMessage = messagesService.archiveMessage;
+    mv.checkPriority = messagesService.checkPriority;
+    mv.readMessage = messagesService.readMessage;
+    mv.fromWho = messagesService.messagesList.from;
+    mv.subject = messagesService.messagesList.subject;
+    mv.date = messagesService.messagesList.date;
+    mv.details = messagesService.messagesList.body;
 
 
-
-
-    //Details directive
 
 
 

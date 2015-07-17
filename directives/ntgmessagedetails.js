@@ -9,8 +9,12 @@ ntgMessaging.directive('ntgMessageDetails', ['$log', function ($log) {
             subject: '=',
             date: '=',
             details: '=',
-            archiveMessage: '=',
-            messageStatus: '='
+            messageStatus: '&',
+            messagePriority: '&',
+            archiveMessage: '&',
+            markAs: '&',
+            checkPriority: '&',
+            readMessage: '&'
         }
     };
 

@@ -3,16 +3,16 @@ ntgMessaging.directive('ntgMessageSummary', ['$log', function ($log) {
 
     return {
         templateUrl: 'directives/ntgmessagesummary.tmpl.html',
-        require: '^ngModel',
+        require: '^ntgMessageList',
         scope: {
             messages: '=',
             fromWho: '=',
             subject: '=',
             date: '=',
             details: '=',
+            messageStatus: '&',
+            messagePriority: '&',
             archiveMessage: '&',
-            messageStatus: '=',
-            messagePriority: '=',
             markAs: '&',
             checkPriority: '&',
             readMessage: '&'

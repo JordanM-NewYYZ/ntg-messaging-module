@@ -25,11 +25,7 @@
 <div class="ntg-message-list-container ">
     <div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs " class="messages ">
 
-        <ntg-message-list messages="msg"></ntg-message-list>
-
-        <ntg-message-summary current-message="msg" message-status="msg.status" message-priority="msg.priority" from-who="msg.from" subject="msg.subject" date="msg.date" details="msg.body" archive-message="archiveMessage(msg)" mark-as="markAs(msg)" check-priority="checkPriority(msg)" read-message="readMessage(msg)">
-        </ntg-message-summary>
-
+        <ntg-message-list messages="msg" message-status="msg.status" message-priority="msg.priority" from-who="msg.from" subject="msg.subject" date="msg.date" details="msg.body" archive-message="archiveMessage(msg)" mark-as="markAs(msg)" check-priority="checkPriority(msg)" read-message="readMessage(msg)"></ntg-message-list>
         <br>
 
     </div>

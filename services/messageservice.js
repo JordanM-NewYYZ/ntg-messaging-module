@@ -112,6 +112,7 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
         for (var i = 0; i < list.length; i++) {
             if (list[i].id === messageObj.id) {
                 if (messageObj.priority === true) {
+                    console.log(messageObj);
                     return list[i].priority = false;
                 }
                 if (messageObj.priority === false) {
