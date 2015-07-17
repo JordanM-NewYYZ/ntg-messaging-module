@@ -27,7 +27,9 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
     this.info.unreadCount = 0;
     this.info.archivedCount = 0;
 
+    var that = this;
 
+    //Constructors
     this.newMessage = function (id, from, subject, body, date, status, priority, archived) {
 
         var newObj = angular.copy(message);
@@ -44,13 +46,15 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
         this.addMessage(newObj);
     };
 
-    var that = this;
     this.addMessage = function (messageObj) {
         that.messagesList.push(messageObj);
         that.info.totalCount++;
         that.info.unreadCount++;
 
     };
+
+
+    //Archive / Unarchive
 
     this.archiveMessage = function (messageObj) {
         that.info.archivedCount++;
@@ -84,33 +88,41 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
 
     };
 
+    //Message priority & status functions
+
     this.readMessage = function (messageObj) {
-        console.log("hello");
+        var list = that.messagesList;
+        var count = that.info.unreadCount;
+
         if (messageObj.status === "unread") {
-            setTimeout(function () {
-                console.log(messageObj);
-                messageObj.status === "read";
-                that.info.unreadCount--;
-            }, 200);
+            for (var i = 0; i < list.length; i++) {
+                if (list[i].id === messageObj.id) {
+                    list[i].status = "read";
+                    count--;
+                }
+            }
         }
     };
 
-
-    this.markAs = function setPriority(messageObj) {
+    this.markAs = function (messageObj) {
         var list = that.messagesList;
 
         for (var i = 0; i < list.length; i++) {
             if (list[i].id === messageObj.id) {
                 if (messageObj.priority === true) {
-                    console.log("here -- true");
-                    console.log(list[i]);
-                    return list[i].status = false;
+                    return list[i].priority = false;
                 }
                 if (messageObj.priority === false) {
-                    console.log("here -- false");
-                    return list[i].status = true;
+                    return list[i].priority = true;
                 }
             }
         }
     };
-}]);
+
+    this.checkPriority = function (messageObj) {
+        if (messageObj.priority === true)
+            return true;
+        if (messageObj.priority === false)
+            return false;
+    };
+            }]);

@@ -2,7 +2,7 @@ ntgMessaging.directive('ntgMessageDetails', ['$log', function ($log) {
     'use strict';
     return {
         templateUrl: 'directives/ntgmessagedetails.tmpl.html',
-        require: 'ntgMessageSummary',
+        //        require: 'ntgMessageSummary',
         scope: {
             forMessage: '=',
             loadMessages: '=',
@@ -14,7 +14,6 @@ ntgMessaging.directive('ntgMessageDetails', ['$log', function ($log) {
             isUnread: '=',
             messageStatus: '='
         }
-
     };
 
 }]);

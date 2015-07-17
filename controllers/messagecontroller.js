@@ -16,6 +16,8 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$time
     //Summary directive
     $scope.fromWho = messagesService.messagesList;
     $scope.markAs = messagesService.markAs;
+    $scope.checkPriority = messagesService.checkPriority;
+    $scope.readMessage = messagesService.readMessage;
 
     $scope.messagestatuslist = [
         {
@@ -35,16 +37,6 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$time
 
     //Details directive
 
-    $scope.readMessage = function (messageObj) {
-        console.log("hello");
-        if (messageObj.status === "unread") {
-            setTimeout(function () {
-                console.log(messageObj);
-                messageObj.status === "read";
-                that.info.unreadCount--;
-            }, 200);
-        }
-    };
 
 
     $http.get('json/messages.json')

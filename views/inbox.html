@@ -1,26 +1,32 @@
+<!-- Counters -->
 <p>Total Messages: {{ infoCounters.totalCount }}</p>
 <p>Archived Messages: {{ infoCounters.archivedCount }}</p>
 
+<!--Search-->
 <div class="ntg-message-search">
     <input type="text" ng-model="ntgsearch" placeholder="Search...">
 </div>
+
+<!--Message Filters / Organization-->
 <div class="ntg-message-filters">
     <select ng-model="ntgAttrs">
-        <option value="date">Newest</option>
-        <option value="-date">Oldest</option>
-        <option value="from">From: A-Z</option>
-        <option value="-from">From: Z-A</option>
-        <option value="-priority">Urgent</option>
+        <option value="status === 'unread">Unread</option>
+        <option value="date ">Newest</option>
+        <option value="-date ">Oldest</option>
+        <option value="from ">From: A-Z</option>
+        <option value="-from ">From: Z-A</option>
+        <option value="-priority ">Urgent</option>
+
     </select>
 </div>
 
+<!--ng-repeat Example With Nested Directives-->
+<div class="ntg-message-list-container ">
+    <div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs " class="messages ">
 
-<div class="ntg-message-list-container">
-    <div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs" class="messages">
+        <ntg-message-list message-info="msg "></ntg-message-list>
 
-        <ntg-message-list message-info="msg"></ntg-message-list>
-
-        <ntg-message-summary message-status="msg.status" message-priority="msg.priority" current-message="msg" from-who="msg.from" subject="msg.subject" date="msg.date" details="msg.body" archive-message="archiveMessage(msg)" status-selector="messagestatuslist" update-status="updateStatus(msg)" mark-as="markAs(msg)">
+        <ntg-message-summary message-status="msg.status " message-priority="msg.priority " current-message="msg " from-who="msg.from " subject="msg.subject " date="msg.date " details="msg.body " archive-message="archiveMessage(msg) " status-selector="messagestatuslist " update-status="updateStatus(msg) " mark-as="markAs(msg) " check-priority="checkPriority(msg) " read-message="readMessage(msg) ">
         </ntg-message-summary>
 
         <br>
@@ -35,6 +41,7 @@
 <h1>Message Details Directive (non-nested)</h1>
 <hr>
 
-<div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs" class="messages">
-    <ntg-message-details load-messages="msg"></ntg-message-details>
+<!--Non-nested details directive-->
+<div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs " class="messages ">
+    <ntg-message-details load-messages="msg "></ntg-message-details>
 </div>

@@ -6,14 +6,14 @@
 <!--Dropdown MarkAs-->
 
 <div class="ntg-message-markas">
-
-    <button ng-click="markAs()">Urgent</button>
+    <button ng-click="markAs()" ng-show="checkPriority()">Mark Urgent</button>
+    <button ng-click="markAs()" ng-show="!checkPriority()">Mark Not Urgent</button>
 </div>
 
 <a href="" ng-click="messagedetail='from'" class="ntg-from-button">From</a>
 <a href="" ng-click="messagedetail='subject'" class="ntg-subject-button">Subject</a>
 <a href="" ng-click="messagedetail='date'" class="ntg-date-button">Date</a>
-<a href="" ng-click="messagedetail='details'" class="ntg-details-button">Details</a>
+<a href="" ng-click="messagedetail='details'; readMessage()" class="ntg-details-button">Details</a>
 <a href="" ng-click="messagedetail='hide'" class="ntg-hide-button">Hide</a>
 
 <br>

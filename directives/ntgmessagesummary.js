@@ -13,7 +13,9 @@ ntgMessaging.directive('ntgMessageSummary', ['$log', function ($log) {
             messageStatus: '=',
             messagePriority: '=',
             updateStatus: '&',
-            markAs: '&'
+            markAs: '&',
+            checkPriority: '&',
+            readMessage: '&'
         }
     };
 }]);
