@@ -1,7 +1,9 @@
-<br>
+<div class="ntg-message-list-container">
+    <span class=" ntg-message-from ">{{ messages.from }} </span>
+    <span class="ntg-message-subject "> {{ messages.subject }}</span>
+    <span class="ntg-message-date "> {{ messages.date | date: 'dd/mm/yyyy' }}</span>
 
-<span class=" ntg-message-from ">{{ messages.from }} </span>
-<span class="ntg-message-subject "> {{ messages.subject }}</span>
-<span class="ntg-message-date "> {{ messages.date | date: 'dd/mm/yyyy' }}</span>
+    <ntg-message-summary messages="messages" message-status="messageStatus" message-priority="messagePriority" from-who="fromWho" subject="subject" date="date" details="details" archive-message="archiveMessage(msg)" mark-as="markAs(msg)" check-priority="checkPriority(msg)" read-message="readMessage(msg)">
+    </ntg-message-summary>
 
-<ntg-message-summary messages="messages" message-status="messageStatus" message-priority="messagePriority" from-who="fromWho" subject="subject" date="date" details="details" archive-message="archiveMessage(msg)" mark-as="markAs(msg)" check-priority="checkPriority(msg)" read-message="readMessage(msg)"></ntg-message-summary>
+</div>

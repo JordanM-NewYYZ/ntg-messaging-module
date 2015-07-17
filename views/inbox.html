@@ -1,37 +1,34 @@
 <!-- Counters -->
-<p>Total Messages: {{ infoCounters.totalCount }}</p>
-<p>Unread Messages: {{ infoCounters.unreadCount }}</p>
-<p>Archived Messages: {{ infoCounters.archivedCount }}</p>
+<p class="ntg-total-message-count">Total Messages: {{ infoCounters.totalCount }}</p>
+<p class="ntg-unread-message-count">Unread Messages: {{ infoCounters.unreadCount }}</p>
+<p class="archived-message-count">Archived Messages: {{ infoCounters.archivedCount }}</p>
 
 <!--Search-->
 <div class="ntg-message-search">
-    <input type="text" ng-model="ntgsearch" placeholder="Search...">
+    <input type="text" ng-model="ntgsearch" placeholder="Search..." class="ntg-search-bar">
 </div>
 
 <!--Message Filters / Organization-->
 <div class="ntg-message-filters">
     <select ng-model="ntgAttrs">
-        <option value="date">Recent</option>
-        <option value="-date">Oldest</option>
-        <option value="-status">Unread</option>
-        <option value="from">From: A-Z</option>
-        <option value="-from">From: Z-A</option>
-        <option value="priority">Urgent</option>
+        <option value="date" class="ntg-filter-option">Recent</option>
+        <option value="-date" class="ntg-filter-option">Oldest</option>
+        <option value="-status" class="ntg-filter-option">Unread</option>
+        <option value="from" class="ntg-filter-option">From: A-Z</option>
+        <option value="-from" class="ntg-filter-option">From: Z-A</option>
+        <option value="priority" class="ntg-filter-option">Urgent</option>
 
     </select>
 </div>
 
 <!--ng-repeat Example With Nested Directives-->
 <div class="ntg-message-list-container ">
-    <div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs " class="messages ">
+    <div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs" class="messages">
 
         <ntg-message-list messages="msg" message-status="msg.status" message-priority="msg.priority" from-who="msg.from" subject="msg.subject" date="msg.date" details="msg.body" archive-message="archiveMessage(msg)" mark-as="markAs(msg)" check-priority="checkPriority(msg)" read-message="readMessage(msg)"></ntg-message-list>
-        <br>
-
     </div>
 </div>
 
-<br>
 
 <!--Non-nested details directive-->
 <hr>

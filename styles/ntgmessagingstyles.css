@@ -1,5 +1,6 @@
 .messages {
     width: 100%;
+    -webkit-transition: all ease-out 0.4s;
 }
 
 .ntg-message-list-container {
@@ -8,6 +9,10 @@
 
 .messages:nth-child(odd) {
     background-color: #BDBDBD;
+}
+
+.messages:nth-child(even) {
+    background-color: #e3e3e3;
 }
 
 .ntg-message-from {
@@ -21,4 +26,25 @@
 
 .ntg-message-date {
     float: right;
+}
+
+.ntg-search-bar {
+    width: 75px;
+    color: #ccc;
+    background: #666;
+    font-size: 12px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: inset 0px 1px 0 #222;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    float: left;
+    -webkit-transition: all ease-in-out .2s;
+}
+
+.ntg-search-bar:focus {
+    width: 200px;
+    outline: none;
+    box-shadow: none;
+    border-bottom-color: transparent;
+    -webkit-transition: all ease-in-out .2s;
 }

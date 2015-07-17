@@ -1,41 +1,41 @@
-<br>
+<div class="ntg-messages-summary-container">
 
-<button ng-click="archiveMessage(msg)" class="ntg-archive-button">Archive</button>
+    <button ng-click="archiveMessage(msg)" class="ntg-archive-button">Archive</button>
 
 
-<!--Dropdown MarkAs-->
+    <!--Dropdown MarkAs-->
 
-<div class="ntg-message-markas">
-    <button ng-click="markAs()" ng-show="checkPriority()">Mark Urgent</button>
-    <button ng-click="markAs()" ng-show="!checkPriority()">Mark Not Urgent</button>
-</div>
-
-<a href="" ng-click="messagedetail='from'" class="ntg-from-button">From</a>
-<a href="" ng-click="messagedetail='subject'" class="ntg-subject-button">Subject</a>
-<a href="" ng-click="messagedetail='date'" class="ntg-date-button">Date</a>
-<a href="" ng-click="messagedetail='details'; readMessage()" class="ntg-details-button">Details</a>
-<a href="" ng-click="messagedetail='hide'" class="ntg-hide-button">Hide</a>
-
-<br>
-<div ng-switch="messagedetail">
-    <div ng-switch-when="from" class="ntg-switch-from">
-        <p>{{ fromWho }}</p>
+    <div class="ntg-message-markas">
+        <button ng-click="markAs()" ng-show="checkPriority()">Mark Urgent</button>
+        <button ng-click="markAs()" ng-show="!checkPriority()">Mark Not Urgent</button>
     </div>
 
-    <div ng-switch-when="subject" class="ntg-switch-subject">
-        <p>{{ subject }}</p>
+    <a href="" ng-click="messagedetail='from'" class="ntg-from-button">From</a>
+    <a href="" ng-click="messagedetail='subject'" class="ntg-subject-button">Subject</a>
+    <a href="" ng-click="messagedetail='date'" class="ntg-date-button">Date</a>
+    <a href="" ng-click="messagedetail='details'; readMessage()" class="ntg-details-button">Details</a>
+    <a href="" ng-click="messagedetail='hide'" class="ntg-hide-button">Hide</a>
 
-    </div>
+    <div ng-switch="messagedetail">
+        <div ng-switch-when="from" class="ntg-switch-from">
+            <p>{{ fromWho }}</p>
+        </div>
 
-    <div ng-switch-when="date" class="ntg-switch-date">
-        <p>{{ date | date: 'dd/mm/yyyy' }}</p>
-    </div>
+        <div ng-switch-when="subject" class="ntg-switch-subject">
+            <p>{{ subject }}</p>
 
-    <!-- Nested message details directive example -->
-    <div ng-switch-when="details" class="ntg-switch-details">
-        <ntg-message-details message-status="messageStatus" from-who="fromWho" subject="subject" date="date" details="details"></ntg-message-details>
-    </div>
+        </div>
 
-    <div ng-switch-when="hide" class="ntg-switch-hide off">
+        <div ng-switch-when="date" class="ntg-switch-date">
+            <p>{{ date | date: 'dd/mm/yyyy' }}</p>
+        </div>
+
+        <!-- Nested message details directive example -->
+        <div ng-switch-when="details" class="ntg-switch-details">
+            <ntg-message-details message-status="messageStatus" from-who="fromWho" subject="subject" date="date" details="details"></ntg-message-details>
+        </div>
+
+        <div ng-switch-when="hide" class="ntg-switch-hide off">
+        </div>
     </div>
 </div>
