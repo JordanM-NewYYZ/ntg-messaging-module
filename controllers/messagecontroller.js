@@ -3,26 +3,26 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$time
     vm.allMessages = messagesService.messagesList;
     this.messagesService = messagesService;
 
-    $scope.messages = messagesService.messagesList;
-    $scope.infoCounters = messagesService.info;
+    vm.messages = messagesService.messagesList;
+    vm.infoCounters = messagesService.info;
 
     //Default value for message sort dropdown filter
-    $scope.ntgAttrs = "date";
+    vm.ntgAttrs = "date";
 
 
     //List directive
-    $scope.archiveMessage = messagesService.archiveMessage;
+    vm.archiveMessage = messagesService.archiveMessage;
 
     //Summary directive
-    $scope.messages = messagesService.messagesList;
-    $scope.markAs = messagesService.markAs;
-    $scope.checkPriority = messagesService.checkPriority;
-    $scope.readMessage = messagesService.readMessage;
+    vm.messages = messagesService.messagesList;
+    vm.markAs = messagesService.markAs;
+    vm.checkPriority = messagesService.checkPriority;
+    vm.readMessage = messagesService.readMessage;
 
-    $scope.fromWho = messagesService.messagesList.from;
-    $scope.subject = messagesService.messagesList.subject;
-    $scope.date = messagesService.messagesList.date;
-    $scope.details = messagesService.messagesList.body;
+    vm.fromWho = messagesService.messagesList.from;
+    vm.subject = messagesService.messagesList.subject;
+    vm.date = messagesService.messagesList.date;
+    vm.details = messagesService.messagesList.body;
 
 
 
