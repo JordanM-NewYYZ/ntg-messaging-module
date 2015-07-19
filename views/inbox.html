@@ -17,13 +17,12 @@
         <option value="from" class="ntg-filter-option">From: A-Z</option>
         <option value="-from" class="ntg-filter-option">From: Z-A</option>
         <option value="priority" class="ntg-filter-option">Urgent</option>
-
     </select>
 </div>
 
 <!--ng-repeat Example With Nested Directives-->
-<div class="ntg-message-list-container ">
-    <div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs" class="messages">
+<div class="ntg-message-list-container">
+    <div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs" class="messages" ng-class="{ntgurgentmessage: msg.priority == true}">
 
         <ntg-message-list messages="msg" message-status="msg.status" message-priority="msg.priority" from-who="msg.from" subject="msg.subject" date="msg.date" details="msg.body" archive-message="archiveMessage(msg)" mark-as="markAs(msg)" check-priority="checkPriority(msg)" read-message="readMessage(msg)"></ntg-message-list>
     </div>
@@ -32,8 +31,8 @@
 
 <!--Non-nested details directive-->
 <hr>
-<h1>Non-nested details directive:</h1>
+<h2>Non-nested details directive:</h2>
 <hr>
-<div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs" class="messages">
+<div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs" class="messages" ng-class="{ntgurgentmessage: msg.priority == true}">
     <ntg-message-details messages="msg"></ntg-message-details>
 </div>

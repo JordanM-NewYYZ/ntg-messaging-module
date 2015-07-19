@@ -48,3 +48,9 @@
     border-bottom-color: transparent;
     -webkit-transition: all ease-in-out .2s;
 }
+/*Styling for urgent messages only*/
+
+.ntgurgentmessage {
+    color: red;
+    background-color: red;
+}
