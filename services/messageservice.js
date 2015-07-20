@@ -17,16 +17,7 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
 
     this.list = {};
     this.list.archived = [];
-    this.list.selection = [{
-        "id": 1,
-        "from": "Bob",
-        "subject": "Important Meeting",
-        "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-        "date": "1436449905",
-        "status": "unread",
-        "priority": false,
-        "archived": false
- }];
+    this.list.selection = [];
 
     //Message status
     this.info = {};
@@ -68,7 +59,6 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
 
         removeFromMessages(messageObj);
 
-        //Removes duplicated messages*
         function removeFromMessages(messageObj, list) {
             list = that.messagesList;
             for (var i = list.length; i--;) {
@@ -141,22 +131,28 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
 
     this.selectMessage = function (messageObj) {
         selected = that.list.selection;
-        addMessage(selected, messageObj);
 
-        function addMessage(selected, message) {
+        for (var i = 0; i < selected.length; i++) {
             selected.push(messageObj);
             console.log("Pushed: ", selected);
-            checkStatus(selected, message);
-        }
-
-        function checkStatus(selected, message) {
-            for (var i = 0; i < selected.length; i++) {
-                if (selected[i] === messageObj) {
-                    selected.splice(i);
-                    console.log("Removed: ", selected);
-                }
+            if (selected[i] === messageObj) {
+                selected.splice(i, 1);
+                console.log("Removed: ", selected);
             }
+        }
+        if (selected.length === 0) {
+            selected.push(messageObj);
+            console.log("Initial Push!");
         }
     }
 
-            }]);
+    this.archiveSelectedMessages = function (messages) {
+        count = messages.length
+        that.info.archivedCount + count;
+        that.list.archived.push(messages);
+        removeFromMessages(messages);
+        that.list.selection = [];
+
+        //Write function to iterate through the array and remove the messages from the main list
+    }
+}]);

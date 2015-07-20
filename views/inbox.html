@@ -20,10 +20,14 @@
     </select>
 </div>
 
+<button ng-click="archiveSelectedMessages(selectedMessageList)">Archive Selected {{selectedMessageList.length}}</button>
+
 <!--ng-repeat Example With Nested Directives-->
 <div class="ntg-message-list-container">
     <div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs" class="messages" mark-priority="markPriority(msg)" ng-class="{ntgurgentmessage: msg.priority == true}">
-        <input type="checkbox" ng-click="selectMessage(msg)" value={{msg}}/>
+
+        <input type="checkbox" ng-change="selectMessage(msg)" ng-model="selectedMessageList" />
+
         <ntg-message-list messages="msg" message-status="msg.status" message-priority="msg.priority" from-who="msg.from" subject="msg.subject" date="msg.date" details="msg.body" archive-message="archiveMessage(msg)" mark-as="markAs(msg)" check-priority="checkPriority(msg)" selected-messages="selectMessage(msg)" read-message="readMessage(msg)"></ntg-message-list>
     </div>
 </div>

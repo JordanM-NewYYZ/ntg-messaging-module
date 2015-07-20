@@ -23,6 +23,8 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$time
 
     //List Attributes
     mv.selectMessage = messagesService.selectMessage;
+    mv.selectedMessageList = messagesService.list.selection;
+    mv.archiveSelectedMessages = messagesService.archiveSelectedMessages;
 
     $http.get('json/messages.json')
         .success(function (responses) {
