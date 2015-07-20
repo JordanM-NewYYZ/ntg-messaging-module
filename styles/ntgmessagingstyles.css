@@ -17,6 +17,7 @@
 
 .ntg-message-from {
     float: left;
+    width: 15%;
 }
 
 .ntg-message-subject {
@@ -31,7 +32,7 @@
 .ntg-search-bar {
     width: 75px;
     color: #ccc;
-    background: #666;
+    background: #000;
     font-size: 12px;
     border-radius: 20px;
     border: none;
