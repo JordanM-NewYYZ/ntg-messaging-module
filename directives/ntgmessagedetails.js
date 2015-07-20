@@ -13,7 +13,8 @@ ntgMessaging.directive('ntgMessageDetails', ['$log', function ($log) {
             archiveMessage: '&',
             markAs: '&',
             checkPriority: '&',
-            readMessage: '&'
+            readMessage: '&',
+            selectMessage: '&'
         }
     };
 }]);

@@ -14,7 +14,8 @@ ntgMessaging.directive('ntgMessageList', ['$log', function ($log) {
             archiveMessage: '&',
             markAs: '&',
             checkPriority: '&',
-            readMessage: '&'
+            readMessage: '&',
+            selectMessage: '&'
         }
     };
 }]);

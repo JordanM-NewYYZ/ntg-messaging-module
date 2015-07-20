@@ -17,6 +17,16 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
 
     this.list = {};
     this.list.archived = [];
+    this.list.selection = [{
+        "id": 1,
+        "from": "Bob",
+        "subject": "Important Meeting",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "date": "1436449905",
+        "status": "unread",
+        "priority": false,
+        "archived": false
+ }];
 
     //Message status
     this.info = {};
@@ -128,4 +138,25 @@ ntgMessaging.service('messagesService', ['$log', function ($log) {
         if (messageObj.priority === false)
             return false;
     };
+
+    this.selectMessage = function (messageObj) {
+        selected = that.list.selection;
+        addMessage(selected, messageObj);
+
+        function addMessage(selected, message) {
+            selected.push(messageObj);
+            console.log("Pushed: ", selected);
+            checkStatus(selected, message);
+        }
+
+        function checkStatus(selected, message) {
+            for (var i = 0; i < selected.length; i++) {
+                if (selected[i] === messageObj) {
+                    selected.splice(i);
+                    console.log("Removed: ", selected);
+                }
+            }
+        }
+    }
+
             }]);

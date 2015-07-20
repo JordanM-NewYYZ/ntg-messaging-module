@@ -21,9 +21,8 @@ ntgMessaging.controller('messagesController', ['$scope', '$http', '$log', '$time
     mv.date = messagesService.messagesList.date;
     mv.details = messagesService.messagesList.body;
 
-
-
-
+    //List Attributes
+    mv.selectMessage = messagesService.selectMessage;
 
     $http.get('json/messages.json')
         .success(function (responses) {

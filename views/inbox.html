@@ -22,9 +22,9 @@
 
 <!--ng-repeat Example With Nested Directives-->
 <div class="ntg-message-list-container">
-    <div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs" class="messages" ng-class="{ntgurgentmessage: msg.priority == true}">
-
-        <ntg-message-list messages="msg" message-status="msg.status" message-priority="msg.priority" from-who="msg.from" subject="msg.subject" date="msg.date" details="msg.body" archive-message="archiveMessage(msg)" mark-as="markAs(msg)" check-priority="checkPriority(msg)" read-message="readMessage(msg)"></ntg-message-list>
+    <div ng-repeat="msg in message.allMessages | filter: ntgsearch | orderBy: ntgAttrs" class="messages" mark-priority="markPriority(msg)" ng-class="{ntgurgentmessage: msg.priority == true}">
+        <input type="checkbox" ng-click="selectMessage(msg)" value={{msg}}/>
+        <ntg-message-list messages="msg" message-status="msg.status" message-priority="msg.priority" from-who="msg.from" subject="msg.subject" date="msg.date" details="msg.body" archive-message="archiveMessage(msg)" mark-as="markAs(msg)" check-priority="checkPriority(msg)" selected-messages="selectMessage(msg)" read-message="readMessage(msg)"></ntg-message-list>
     </div>
 </div>
 
